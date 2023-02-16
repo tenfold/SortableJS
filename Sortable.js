@@ -3569,7 +3569,7 @@
           sortable: this.sortable,
           rootEl: this.sortable.el,
           name: 'deselect',
-          targetEl: el,
+          targetEl: multiDragElements[0],
           originalEvent: evt
         });
       },
