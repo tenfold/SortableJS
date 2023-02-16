@@ -486,12 +486,13 @@ function MultiDragPlugin() {
 				toggleClass(el, this.options.selectedClass, false);
 				multiDragElements.shift();
 			}
+	
 			dispatchEvent({
-				sortable: this.sortable,
-				rootEl: this.sortable.el,
-				name: 'deselect',
-				targetEl: el,
-				originalEvent: evt
+			sortable: this.sortable,
+			rootEl: this.sortable.el,
+			name: 'deselect',
+			targetEl: multiDragElements[0],
+			originalEvent: evt
 			});
 		},
 
