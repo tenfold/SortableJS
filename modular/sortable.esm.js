@@ -1080,7 +1080,7 @@ let nearestEmptyInsertDetectEvent = function (evt) {
 
 let _checkOutsideTargetEl = function (evt) {
   if (dragEl) {
-    dragEl.parentNode[expando]._isOutsideThisEl(evt.target);
+    dragEl?.parentNode?.[expando]._isOutsideThisEl(evt.target);
   }
 };
 /**
@@ -1510,7 +1510,7 @@ Sortable.prototype =
         parent = target;
       }
 
-      dragEl.parentNode[expando]._isOutsideThisEl(target);
+      dragEl?.parentNode?.[expando]._isOutsideThisEl(target);
 
       if (parent) {
         do {
