@@ -1580,6 +1580,7 @@ Sortable.prototype =
         css(ghostEl, 'mozTransform', cssMatrix);
         css(ghostEl, 'msTransform', cssMatrix);
         css(ghostEl, 'transform', cssMatrix);
+        css(ghostEl.parentElement, 'cursor', options.cursorType);
         lastDx = dx;
         lastDy = dy;
         touchEvt = touch;
@@ -1627,10 +1628,11 @@ Sortable.prototype =
       css(ghostEl, 'left', rect.left);
       css(ghostEl, 'width', rect.width);
       css(ghostEl, 'height', rect.height);
-      css(ghostEl, 'opacity', '0.8');
+      css(ghostEl, 'opacity', '0');
       css(ghostEl, 'position', PositionGhostAbsolutely ? 'absolute' : 'fixed');
       css(ghostEl, 'zIndex', '100000');
       css(ghostEl, 'pointerEvents', 'none');
+      css(ghostEl.parentElement, 'cursor', options.cursorType);
       Sortable.ghost = ghostEl;
       container.appendChild(ghostEl); // Set transform-origin
 
