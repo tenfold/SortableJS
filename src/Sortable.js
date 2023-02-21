@@ -896,7 +896,7 @@ Sortable.prototype = /** @lends Sortable.prototype */ {
 			css(ghostEl, 'left', rect.left);
 			css(ghostEl, 'width', rect.width);
 			css(ghostEl, 'height', rect.height);
-			css(ghostEl, 'opacity', '0.8');
+			css(ghostEl, 'opacity', '0');
 			css(ghostEl, 'position', (PositionGhostAbsolutely ? 'absolute' : 'fixed'));
 			css(ghostEl, 'zIndex', '100000');
 			css(ghostEl, 'pointerEvents', 'none');
