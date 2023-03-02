@@ -1,27 +1,27 @@
 pipeline:
   restore-cache:
-    image: node:12
+    image: node:16
     restore: true
     mount:
       - ./node_modules
     volumes:
       - /tmp/cache:/cache
   install:
-    image: node:12
+    image: node:16
     commands:
-      - yarn
+      - npm install
   test:
-    image: node:12
+    image: node:16
     group: test
     commands:
-      - yarn test --collectCoverage
+      - npm test --collectCoverage
   test-build:
-    image: node:12
+    image: node:16
     group: test
     commands:
-      - yarn build
+      - npm build
   upload-coverage:
-    image: node:12
+    image: node:16
     secrets: [ codecov_token ]
     commands:
       - "bash -c 'bash <(curl -s https://codecov.io/bash)'"
