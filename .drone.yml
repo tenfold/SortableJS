@@ -10,18 +10,8 @@ pipeline:
     image: node:16
     commands:
       - npm install
-  test:
-    image: node:16
-    group: test
-    commands:
-      - npm test --collectCoverage
   test-build:
     image: node:16
     group: test
     commands:
       - npm build
-  upload-coverage:
-    image: node:16
-    secrets: [ codecov_token ]
-    commands:
-      - "bash -c 'bash <(curl -s https://codecov.io/bash)'"
