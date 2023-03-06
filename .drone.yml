@@ -15,3 +15,8 @@ pipeline:
     group: test
     commands:
       - npm build
+  unit-tests:
+    image: node:16
+    group: test
+    commands:
+      - npm test
