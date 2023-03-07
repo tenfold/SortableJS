@@ -10,8 +10,9 @@ steps:
   - apt update && apt -y upgrade
   - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
   - apt -y install ./google-chrome-stable_current_amd64.deb
-  - ENV CHROME_BIN=/usr/bin/google-chrome
   - npm install
+  environment:
+      - CHROME_BIN=/usr/bin/google-chrome
   
 - name: test-build
   pull: if-not-exists
