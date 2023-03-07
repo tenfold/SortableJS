@@ -25,6 +25,3 @@ steps:
   - export CHROME_BIN=/usr/bin/google-chrome-stable
   - npm install
   - npm run test
-
-
-
