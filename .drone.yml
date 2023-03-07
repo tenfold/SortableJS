@@ -12,7 +12,7 @@ steps:
   - apt -y install ./google-chrome-stable_current_amd64.deb
   - npm install
   environment:
-    CHROME_BIN: /usr/bin/google-chrome
+    CHROME_BIN: /usr/bin/google-chrome-stable
   
 - name: test-build
   pull: if-not-exists
