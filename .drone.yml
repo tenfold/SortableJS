@@ -7,10 +7,10 @@ steps:
   pull: if-not-exists
   image: node:16
   commands:
-  - npm install
   - apt update && apt -y upgrade
   - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
   - apt -y install ./google-chrome-stable_current_amd64.deb
+  - npm install
   
 - name: test-build
   pull: if-not-exists
