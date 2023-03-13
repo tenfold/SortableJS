@@ -1,0 +1,28 @@
+---
+kind: pipeline
+name: default
+
+steps:
+- name: install
+  pull: if-not-exists
+  image: node:16
+  commands:
+  - npm install
+  
+- name: test-build
+  pull: if-not-exists
+  depends_on: [ install ]
+  image: node:16
+  commands:
+  - npm run build
+
+- name: unit-tests
+  pull: if-not-exists
+  depends_on: [ test-build ]
+  image: node:16
+  commands:
+  - apt update && apt -y upgrade
+  - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+  - apt -y install ./google-chrome-stable_current_amd64.deb
+  - export CHROME_BIN=/usr/bin/google-chrome-stable
+  - npm run test

@@ -52,6 +52,8 @@ Demo: http://sortablejs.github.io/Sortable/
 
 ### Getting Started
 
+Required Node version: 14 or 16
+
 Install with NPM:
 ```bash
 $ npm install sortablejs --save
