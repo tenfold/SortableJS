@@ -1,0 +1,50 @@
+stages:
+  - install
+  - test-build
+  - unit-tests
+
+image: 
+  name: node:16
+  pull_policy: if-not-present
+
+install-job:
+  stage: install
+  tags:
+    - lp-int-backend
+  script:
+    - npm install
+  artifacts:
+    paths: 
+      - node_modules
+  only:
+    - branches
+    - merge_requests
+    - tags
+
+test-build-job:
+  stage: test-build
+  needs: [ install-job ]
+  tags:
+    - lp-int-backend
+  script:
+    - npm run build
+  only:
+    - branches
+    - merge_requests
+    - tags
+
+unit-tests-job:
+  stage: unit-tests
+  needs: [ install-job, test-build-job ]
+  tags:
+    - lp-int-backend
+  script:
+    - apt update && apt -y upgrade
+    - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    - apt -y install ./google-chrome-stable_current_amd64.deb
+    - export CHROME_BIN=/usr/bin/google-chrome-stable
+    - npm run test
+  only:
+    - branches
+    - merge_requests
+    - tags
